@@ -17,8 +17,10 @@
         example
     </author>
     
-    <feature name="Camera">
-    <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
 
 </widget>
