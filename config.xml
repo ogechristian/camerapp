@@ -16,7 +16,7 @@
     <author href="http://ogechristian.byethost7.com" email="ogechristian@gmail.com">
         example
     </author>
-    
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
