@@ -21,8 +21,4 @@
     <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
 
-
-    (in app/AndroidManifest)
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 </widget>
