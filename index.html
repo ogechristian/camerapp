@@ -1,73 +1,29 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Untitled Document</title>
-<script src="phonegap.js"></script>
-
-<script>
-		document.addEventListener("deviceready", onDeviceReady, false);
-		function onDeviceReady() {
-			// call the phonegap api
-		}
-		
-		//------------------------select a photo------------
-		function getPhoto(source) {
-			navigator.camera.getPicture(onPhotoSuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
-			}
-		function onFail(message) {
-			alert('Failed because: ' + message);
-		}
-		function onPhotoSuccess(imageURI){
-			var myImg = document.getElementById('myImage');
-			myImg.style.display = 'block';
-			myImg.src = imageURI;
-		}
-		//------------------------take a photo--------------------
-		function capturePhoto() {
-			navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, { quality: 50 });
-		}
-		
-		function onCaptureFail(message) {
-		alert('Failed because: ' + message);
-		}
-		
-		function onCaptureSuccess(imageData){
-			var myImg = document.getElementById('myImage');
-			myImg.style.display = 'block';
-			myImage.src = "data:image/jpeg;base64," + imageData;
-		}
-		
-		
+<title>Take a Photo</title>
+<script type=”text/javascript” charset=”utf-8” src=”phonegap.js”></script>
+<script type=”text/javascript” charset=”utf-8”>
+document.addEventListener(“deviceready”,onDeviceReady,false);
+function onDeviceReady() {
+}
+// Called when a photo is successfully retrieved
+//
+function onPhotoSuccess(imageData) {
+var myImage = document.getElementById(‘myImage’);
+myImage.style.display = ‘block’;
+myImage.src = “data:image/jpeg;base64,” + imageData;
+}
+function capturePhoto() {
+navigator.camera.getPicture(onPhotoSuccess, onPhotoFail, { quality: 50 });
+}
+function onPhotoFail(message) {
+alert(‘Failed because: ‘ + message);
+}
 </script>
 </head>
-
 <body>
-		<div>
-        		<div id="pictureframe" style="width:50; height:100; border:thick">
-                		<img style="display:none;" id="myImage" src="" />
-                        <input type="button" value="take a photo" onClick="capturePhoto()"/>
-                        <input type="button" value="choose from gallery" onClick="getPhoto(pictureSource.PHOTOLIBRARY)"/>
-                </div>
-                <div id="sidesettings">
-                	<div id="timer">
-                    	<label>Timer</label>
-                		<input type="number" min="5" max="" size="6"/>
-                        <select id="duration">
-  								<option value="min">min</option>
- 								<option value="hr">hour</option>
-  								<option value="day">day</option>
-						</select>
-                    </div>
-                </div>
-                <div id="groundsettings">
-                	<label>comment</label><br />
-                	<textarea rows="4" cols="50">
-                    	
-					</textarea><br />
-                    <input type="button" value="submit"/>
-                </div>
-        </div>
-		
+<button onclick=”capturePhoto();”>Capture Photo</button> <br>
+<img style=”display:none;width:60px;height:60px;” id=”myImage” src=”” />
 </body>
 </html>
