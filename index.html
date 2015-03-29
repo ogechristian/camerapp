@@ -70,6 +70,18 @@
 			smallImage.src = "data:image/jpeg;base64," + imageData;
 		}
 		
+		function getLocation(){
+			var url = "http://theaccubin.com/entrance/attend/service.php/getareacord/anthony";
+			var request = new XMLHttpRequest();
+			request.open("GET", url);
+			request.onload = function() {
+				if (request.status == 200) {
+					alert(request.responseText);
+				}
+				else{alert("this didnt work");}
+			};
+			request.send(null);
+		}
 		
 </script>
 </head>
@@ -97,7 +109,7 @@
                 	<textarea rows="4" cols="50">
                     	
 					</textarea><br />
-                    <input type="button" value="submit"/>
+                    <input type="button" value="submit" onClick="getLocation();" />
                 </div>
         </div>
 		
